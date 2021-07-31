@@ -17,7 +17,7 @@ export function Thought(props) {
     
     //con esto probamos que funciona
     const timeout = setTimeout(() => {
-    alert('Time has passed!');
+    //alert('Time has passed!');
     //llamamos a la función para eliminar los pensamientos añadidos  . para ello tenemos que pasarle como parámetro el pensamineto con su id
     removeThought(thought.id)
     }, timeRemaining);
@@ -25,7 +25,8 @@ export function Thought(props) {
     return () => {
       clearTimeout(timeout);
     };
-    },[thought])
+    },[removeThought,thought.expiresAt,thought.id])
+    //Eslint was alerting me with an error in this dependecy array so i hace to put into what it said to me
 
   return (
     <li className="Thought">
